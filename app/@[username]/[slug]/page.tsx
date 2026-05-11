@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
 import { formatPrice } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
+import { PaymentButton } from '@/components/payment/PaymentButton';
 
 interface Props {
   params: {
@@ -146,9 +146,7 @@ export default async function SalesPage({ params }: Props) {
             <p className="text-xs text-gray-500 font-medium">총 합계</p>
             <p className="text-xl font-bold text-gray-900">{formatPrice(product.price)}</p>
           </div>
-          <Button size="lg" className="flex-1 h-14 text-lg font-bold rounded-xl shadow-lg hover:scale-[1.02] transition-transform">
-            {product.price === 0 ? '무료로 받기' : '구매하기'}
-          </Button>
+          <PaymentButton product={{ id: product.id, title: product.title, price: product.price }} />
         </div>
       </div>
     </div>
