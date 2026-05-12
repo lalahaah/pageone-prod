@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Check, X, ArrowRight, Zap, CreditCard, Wallet, Star } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export default function LandingPage() {
   return (
@@ -15,9 +16,9 @@ export default function LandingPage() {
           <Link href="/login" className="text-sm font-medium hover:text-[#6366f1] transition-colors">
             로그인
           </Link>
-          <Button asChild className="bg-[#6366f1] hover:bg-[#6366f1]/90">
-            <Link href="/register">무료로 시작하기</Link>
-          </Button>
+          <Link href="/register" className={cn(buttonVariants({ variant: "default" }), "bg-[#6366f1] hover:bg-[#6366f1]/90")}>
+            무료로 시작하기
+          </Link>
         </nav>
       </header>
 
@@ -37,9 +38,9 @@ export default function LandingPage() {
             카카오페이, 토스 결제가 즉시 연동됩니다.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="h-14 px-8 text-lg font-bold bg-[#6366f1] hover:bg-[#6366f1]/90 w-full sm:w-auto">
-              <Link href="/register">무료로 시작하기 <ArrowRight className="ml-2 h-5 w-5" /></Link>
-            </Button>
+            <Link href="/register" className={cn(buttonVariants({ size: "lg" }), "h-14 px-8 text-lg font-bold bg-[#6366f1] hover:bg-[#6366f1]/90 w-full sm:w-auto")}>
+              무료로 시작하기 <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
             <p className="text-sm text-gray-400">신용카드 없이 30초면 가입 완료</p>
           </div>
         </section>
@@ -166,9 +167,9 @@ export default function LandingPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
             지금 바로 첫 상품을 올려보세요
           </h2>
-          <Button asChild size="lg" className="h-16 px-12 text-xl font-bold bg-white text-[#6366f1] hover:bg-white/90">
-            <Link href="/register">무료로 시작하기</Link>
-          </Button>
+          <Link href="/register" className={cn(buttonVariants({ size: "lg" }), "h-16 px-12 text-xl font-bold bg-white text-[#6366f1] hover:bg-white/90")}>
+            무료로 시작하기
+          </Link>
         </section>
       </main>
 

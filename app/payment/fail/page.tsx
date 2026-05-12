@@ -2,7 +2,8 @@
 
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { XCircle } from 'lucide-react';
 
 export default function PaymentFailPage() {
@@ -21,9 +22,9 @@ export default function PaymentFailPage() {
           <br /> 다시 시도해 주세요.
         </p>
         <div className="space-y-3">
-          <Button asChild variant="outline" className="w-full h-12 text-base font-bold">
-            <Link href="/">메인으로 가기</Link>
-          </Button>
+          <Link href="/" className={cn(buttonVariants({ variant: "outline" }), "w-full h-12 text-base font-bold")}>
+            메인으로 가기
+          </Link>
           <Button onClick={() => window.history.back()} className="w-full h-12 text-base font-bold">
             이전 페이지로 돌아가기
           </Button>

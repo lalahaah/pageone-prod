@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { CheckCircle2 } from 'lucide-react';
 
 export default function PaymentSuccessPage() {
@@ -16,9 +17,9 @@ export default function PaymentSuccessPage() {
           이메일이 오지 않았다면 스팸 메일함을 확인해주세요.
         </p>
         <div className="space-y-3">
-          <Button asChild className="w-full h-12 text-base font-bold">
-            <Link href="/">홈으로 돌아가기</Link>
-          </Button>
+          <Link href="/" className={cn(buttonVariants(), "w-full h-12 text-base font-bold")}>
+            홈으로 돌아가기
+          </Link>
         </div>
       </div>
     </div>
