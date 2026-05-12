@@ -1,35 +1,22 @@
-'use client';
-
-import { useSearchParams } from 'next/navigation';
+﻿import { Suspense } from 'react';
 import Link from 'next/link';
-import { Button, buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { XCircle } from 'lucide-react';
+
+function FailContent() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen px-6 text-center">
+      <h1 className="text-2xl font-bold mb-4">결제에 실패했습니다</h1>
+      <p className="text-gray-600 mb-8">결제 중 오류가 발생했습니다. 다시 시도해 주세요.</p>
+      <Link href="/" className="bg-black text-white px-6 py-3 rounded-md font-medium">
+        홈으로 돌아가기
+      </Link>
+    </div>
+  );
+}
 
 export default function PaymentFailPage() {
-  const searchParams = useSearchParams();
-  const message = searchParams.get('message');
-
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 px-4">
-      <div className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-sm">
-        <div className="mb-4 flex justify-center">
-          <XCircle className="h-16 w-16 text-red-500" />
-        </div>
-        <h1 className="mb-2 text-2xl font-bold text-gray-900">결제에 실패했습니다</h1>
-        <p className="mb-8 text-gray-600 leading-relaxed">
-          {message || '결제 처리 중 오류가 발생했습니다.'}
-          <br /> 다시 시도해 주세요.
-        </p>
-        <div className="space-y-3">
-          <Link href="/" className={cn(buttonVariants({ variant: "outline" }), "w-full h-12 text-base font-bold")}>
-            메인으로 가기
-          </Link>
-          <Button onClick={() => window.history.back()} className="w-full h-12 text-base font-bold">
-            이전 페이지로 돌아가기
-          </Button>
-        </div>
-      </div>
-    </div>
+    <Suspense fallback={<div>로딩 중...</div>}>
+      <FailContent />
+    </Suspense>
   );
 }
