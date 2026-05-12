@@ -30,9 +30,9 @@ export default function LandingPage() {
         position: "fixed", top: 0, left: 0, height: "100vh", overflowY: "auto",
         background: "#fff"
       }}>
-        <div style={{ fontSize: "20px", fontWeight: 600, letterSpacing: "-0.5px" }}>PageOne</div>
+        <div style={{ fontSize: "20px", fontWeight: 700, letterSpacing: "-0.5px", color: "#64748b" }}>PageOne</div>
 
-        <div style={{ fontSize: "26px", fontWeight: 700, lineHeight: 1.3, letterSpacing: "-0.5px" }}>
+        <div style={{ fontSize: "26px", fontWeight: 800, lineHeight: 1.3, letterSpacing: "-1px", color: "#0f172a" }}>
           만들었으면<br />팔아라
         </div>
 
@@ -130,6 +130,9 @@ export default function LandingPage() {
     </div>
   );
 }
+
+
+
 
 
 
