@@ -123,11 +123,7 @@ export function ProductForm() {
         
         const { data: uploadData, error: uploadError } = await supabase.storage
           .from('products')
-          .upload(path, file, {
-            onUploadProgress: (evt) => {
-              setProgress(Math.round((evt.loaded / evt.total) * 100));
-            },
-          });
+          .upload(path, file);
 
         if (uploadError) throw uploadError;
         filePath = uploadData.path;
@@ -353,3 +349,4 @@ export function ProductForm() {
     </form>
   );
 }
+
