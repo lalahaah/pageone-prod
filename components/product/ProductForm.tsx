@@ -51,7 +51,7 @@ export function ProductForm() {
   const supabase = createClient();
 
   const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm<ProductFormValues>({
-    resolver: zodResolver(productSchema),
+    resolver: zodResolver(productSchema) as any,
     defaultValues: {
       price: 0,
       payWhatYouWant: false,
