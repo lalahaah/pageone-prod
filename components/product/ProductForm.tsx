@@ -51,8 +51,8 @@ export function ProductForm() {
   });
 
   const title = watch('title');
-  const fileType = watch('fileType');
-  const payWhatYouWant = watch('payWhatYouWant');
+  const fileType = watch('fileType', 'file');
+  const payWhatYouWant = watch('payWhatYouWant', false);
 
   // 슬러그 자동 생성
   useEffect(() => {
@@ -165,7 +165,7 @@ export function ProductForm() {
           <div className="flex items-center space-x-2">
             <Switch
               id="is_published"
-              checked={watch('isPublished')}
+              checked={watch('isPublished', false)}
               onCheckedChange={(checked) => setValue('isPublished', checked)}
             />
             <Label htmlFor="is_published">공개하기</Label>
