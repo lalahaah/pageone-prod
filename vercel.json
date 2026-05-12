@@ -1,8 +1,0 @@
-﻿{
-  "regions": ["icn1"],
-  "functions": {
-    "api/payments/confirm": {
-      "maxDuration": 30
-    }
-  }
-}
