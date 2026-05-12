@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -28,7 +28,17 @@ const productSchema = z.object({
   isPublished: z.boolean().default(false),
 });
 
-type ProductFormValues = z.infer<typeof productSchema>;
+type ProductFormValues = {
+  title: string;
+  description: string;
+  price: number;
+  payWhatYouWant: boolean;
+  minPrice?: number;
+  fileType: "file" | "external_url";
+  externalUrl?: string;
+  slug: string;
+  isPublished: boolean;
+};
 
 export function ProductForm() {
   const router = useRouter();
